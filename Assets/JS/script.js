@@ -14,7 +14,11 @@ let boulet1 = document.getElementById("boulet");
 let bouletHeight = 50;
 let bouletWidth = 50;
 let bouletX = (c.width-bouletWidth) / 2;
-/*let target1 = document.getElementById("target");*/
+let target1 = document.getElementById("target");
+let target1X = Math.floor(Math.random() * c.width-100);
+let target1Y = Math.floor(Math.random() * c.height-200);
+let targetHeight = 100;
+let targetWidth = 100;
 let buttonNewGame = document.getElementById("NewGame");
 let buttonRestart = document.getElementById("Restart");
 
@@ -48,17 +52,23 @@ function drawTank(){
     ctx.drawImage(boulet1,bouletX,c.height-canonHeight,bouletWidth,bouletHeight);
  }
  function drawTarget(){
-    ctx.drawImage(target1,100,100,100,100); 
+    ctx.drawImage(target1,target1X,target1Y,targetWidth,targetHeight); 
  }
 
-
+  /*buttonNewGame.onclick = function start() {
+        document.getElementById("PewPew").style.display= "";
+        drawTank();
+        drawBoulet();
+        drawTarget();
+    }*/
 
 function draw(){
 
     ctx.clearRect(0, 0, c.width, c.height);
-   drawTank();
-   /*drawTarget();*/
-   drawBoulet();
+    drawTank();
+    drawBoulet();
+    drawTarget();
+
    if (rightPressed) {
        canon1X += 7;
        bouletX += 7;
@@ -77,3 +87,9 @@ function draw(){
     y += dy;
 }
 setInterval(draw, 10);
+
+function drawTargetRandom(){
+    ctx.clearRect(0, 0, c.width, c.height);
+     drawTarget();
+
+}
