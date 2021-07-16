@@ -8,18 +8,24 @@
     <title>PewPew</title>
 </head>
 <body>
-    <div class="button">
-        <button id="NewGame">Start New Game</button>
-        <button id="Restart">Restart</button>
+    <div id="inst">
+        <h1>Instructions</h1>
+        <p>Press left and right keys to move the cannon.</p>
+        <p>Press space bar to shoot.</p>
+        <button id="NewGame">Start The Game</button>
     </div>
-
     <div class="container">
        <canvas id="PewPew" width="1200" height="800">Your browser does not support the HTML canvas tag.
            <img id="canon" src="Assets/img/tank.png" alt="Canon prêt à tirer">
            <img id="boulet" src="Assets/img/projectil.png" alt="boulet de canon">
            <img id="target" src="Assets/img/target.png" alt="cible à viser"> 
        </canvas>
-    </div>
+    
+       <div class="button">
+          <button id="Restart">Home Page</button>
+          <button id="NewGame2">New Game</button>
+        </div>
+   </div>
     <script src="Assets/JS/script.js"></script>
 </body>
 </html>
