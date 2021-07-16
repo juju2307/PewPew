@@ -64,6 +64,7 @@ function TuchTarget(){
 
 document.addEventListener("keydown", keyDownHandler, false);
 document.addEventListener("keyup", keyUpHandler, false);
+document.addEventListener("space", keySpaceHandler, false )
 
 // fonction pour activer les flèches gauche et droite du clavier
 function keyDownHandler(e) {
@@ -83,17 +84,12 @@ function keyUpHandler(e){
     }
 }
 //fonction pour activer la barre d'espace du clavier
-function keySpaceDownHandler(e) {
+function keySpaceHandler(e) {
     if(e.keycode === 32) {
-        /*spacePressed = true;*/
-        shootBoulet();
-        drawBoulet();
-        draw();
-    
+        spacePressed = true;
+        console.log("shoot"); 
     }
-    else {
-        spacePressed = false;
-    }
+      
 }
 
 
