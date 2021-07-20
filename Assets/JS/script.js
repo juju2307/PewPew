@@ -12,14 +12,15 @@ let canonWidth = 200;
 let canon1X = (c.width-canonWidth) / 2;
 let rightPressed = false;
 let leftPressed = false;
+let spacePressed = false;
 /*let boulet1 = document.getElementById("boulet");
 let bouletHeight = 40;
 let bouletWidth = 40;*/
 //let bouletCircle = {radius: bouletRadius, x: bouletX, y: bouletY};
-let bouletX = c.width / 2;
-let bouletY = c.height - canonHeight;
-let bouletRadius = 10;
-let boulets = [];
+let bulletX = c.width / 2;
+let bulletY = c.height - canonHeight;
+let bulletRadius = 10;
+let bullets = [];
 let target1 = document.getElementById("target");
 let target1X = Math.floor(Math.random() * c.width-100);
 let target1Y = Math.floor(Math.random() *(c.height/2.5));
@@ -32,7 +33,7 @@ let buttonNewGame = document.getElementById("NewGame");
 let buttonRestart = document.getElementById("Restart");
 let buttonNewGame2 = document.getElementById("NewGame2");
 let score = document.getElementById("score");
-let spacePressed = false;
+
 
 
 
@@ -71,22 +72,22 @@ function drawTank(){
     ctx.drawImage(canon1,canon1X,c.height-canonHeight-80,canonWidth,canonHeight);
 }
 //fonction pour positionner le boulet
- function drawBoulets() {
+ function drawBullets() {
 
    if (spacePressed){
        ctx.beginPath();
-       ctx.arc(bouletX,bouletY, bouletRadius,0, Math.PI*2);
+       ctx.arc(bulletX,bulletY, bulletRadius,0, Math.PI*2);
        ctx.fillStyle = "#FFD700";
        ctx.fill();
        ctx.closePath();
      
      
-    if(bouletY + dy < bouletRadius) {
+    if(bulletY + dy < bulletRadius) {
         
         spacePressed= false;
-        bouletY = c.height - canonHeight;
+        bulletY = c.height - canonHeight;
     }
-    bouletY += dy;
+    bulletY += dy;
  }
        
   }
@@ -110,7 +111,7 @@ function keyDownHandler(e) {
             }
         else if(e.key == "Space" || e.key == " ") {
             spacePressed = true;
-            bouletX = canon1X+97;
+            bulletX = canon1X+97;
         }
     }
 
@@ -139,7 +140,7 @@ function draw(){
 
     ctx.clearRect(0, 0, c.width, c.height);
     drawTank();
-    drawBoulets();
+    drawBullets();
     drawTarget();
 
      if (rightPressed) {
